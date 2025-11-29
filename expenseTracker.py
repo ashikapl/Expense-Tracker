@@ -64,7 +64,7 @@ class ExpenseTracker:
             print("User Not Found!")
 
 
-    def total_expense_value(self, username):
+    def total_expenses_value(self, username):
         res = 0
         if username in self.expenses:
             for tup in self.expenses[username]:
@@ -74,7 +74,7 @@ class ExpenseTracker:
             print("User Not Found!")
     
 
-    def total_category_value(self, username, category):
+    def total_category_based_value(self, username, category):
         if username in self.expenses:
             res = 0
             for tup in self.expenses[username]:
