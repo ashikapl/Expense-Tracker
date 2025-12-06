@@ -1,9 +1,9 @@
-from expenseTracker import ExpenseTracker
+from expenseTracker.expenseTracker import ExpenseTracker
 from models.category import Category
 
 # ---- CLI App------
 def main():
-    controller = ExpenseTracker()
+    expenseTracker = ExpenseTracker()
 
     while True:
         print()
@@ -25,13 +25,13 @@ def main():
             case 1:
                 name = input("Enter your name: ")
                 username = input("Enter username: ")
-                controller.add_user(name, username)
+                expenseTracker.add_user(name, username)
             case 2:
                 username = input("Enter username:")
-                controller.remove_user(username)
+                expenseTracker.remove_user(username)
             case 3:
                 username = input("Enter username:")
-                if username in controller.users:
+                if username in expenseTracker.users:
                     print("Categories")
                     print(Category.Food.value, Category.Food.name)
                     print(Category.Clothes.value, Category.Clothes.name)
@@ -42,30 +42,30 @@ def main():
 
                     match category:
                         case 1:
-                            controller.add_expense(username, Category.Food.name, amount)
+                            expenseTracker.add_expense(username, Category.Food.name, amount)
                         case 2:
-                            controller.add_expense(username, Category.Clothes.name, amount)
+                            expenseTracker.add_expense(username, Category.Clothes.name, amount)
                         case 3:
-                            controller.add_expense(username, Category.Health.name, amount)
+                            expenseTracker.add_expense(username, Category.Health.name, amount)
                         case _:
                             print("Invalid Category!")
                 else:
                     print("User Not Found!")
             case 4:
                 username = input("Enter username: ")
-                controller.get_expense(username)
+                expenseTracker.get_expense(username)
             case 5:
                 username = input("Enter username: ")
-                print("Total Expenses Value:- ", controller.total_expenses_value(username))
+                print("Total Expenses Value:- ", expenseTracker.total_expenses_value(username))
             case 6:
                 username = input("Enter username: ")
                 category = input("Enter category name: ")
-                print(f"Total Value Based On Category {category}:- ", controller.total_category_based_value(username, category))
+                print(f"Total Value Based On Category {category}:- ", expenseTracker.total_category_based_value(username, category))
             case 7: 
                 username = input("Enter username:")
                 index = int(input("Enter Index No: "))
-                if username in controller.users:
-                    controller.remove_expense(username, index)
+                if username in expenseTracker.users:
+                    expenseTracker.remove_expense(username, index)
                 else:
                     print("User Not Found!")
             case 8:

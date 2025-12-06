@@ -3,10 +3,7 @@ from models.expense import Expense
 
 # ---- Controller ----
 class ExpenseTracker:
-    # map of username and user(name, username)
-    # map of username and []expense(category, amount)
-    # add user, remove user
-    # add exp, remove exp
+
     users = {}
     expenses = {}
 
@@ -43,7 +40,6 @@ class ExpenseTracker:
 
     def get_expense(self, username):
         if username in self.expenses:
-            # print(self.expenses)
             for i, val in enumerate(self.expenses[username]):
                 print(i+1, val)
         else:
@@ -52,8 +48,6 @@ class ExpenseTracker:
 
     def remove_expense(self, username, index):
         if username in self.expenses:
-            # for i, val in enumerate(self.expenses[username]):
-            #     print(i+1, val)
             for i, tup in enumerate(self.expenses[username]):
                 print(i+1, tup, index)
                 if i+1 == index:
